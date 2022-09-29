@@ -6,4 +6,6 @@ public interface PostService {
     Post save(Post newPost);
 
     Post getById(Long id);
+
+    Post update(Long id, Post updateDto);
 }
