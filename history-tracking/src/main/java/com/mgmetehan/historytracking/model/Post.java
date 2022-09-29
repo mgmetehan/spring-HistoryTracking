@@ -1,16 +1,16 @@
 package com.mgmetehan.historytracking.model;
 
 import com.mgmetehan.historytracking.core.model.BaseEntity;
+import com.mgmetehan.historytracking.shared.annotation.Historical;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
 
 @Getter
 @Setter
-//Historical
+@Historical(serviceName = "postHistoryServiceImpl", clazz = PostHistory.class)
 @Entity
 public class Post extends BaseEntity {
     @Column(nullable = false)
@@ -19,8 +19,7 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String title;
 
-    @Lob
-    @Column(columnDefinition = "text", nullable = false)
+    @Column(nullable = false)
     private String text;
 
     @Override

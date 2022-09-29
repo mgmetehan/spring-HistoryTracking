@@ -25,7 +25,7 @@ public abstract class BaseEntity implements Serializable {
 
     @CreatedDate
     @Column(nullable = false)
-    protected Date createdDate;
+    protected Date createdDate=new Date();
 
     private boolean enable = true;
 

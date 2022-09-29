@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        ejb:
+          interceptor: com.mgmetehan.historytracking.Interceptor.HistoryManagementInterceptor
+    show-sql: false
+    hibernate:
+      ddl-auto: update

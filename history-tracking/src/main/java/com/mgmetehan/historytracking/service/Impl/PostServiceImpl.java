@@ -1,6 +1,8 @@
 package com.mgmetehan.historytracking.service.Impl;
 
 import com.mgmetehan.historytracking.core.exception.NotFoundException;
+import com.mgmetehan.historytracking.core.repository.BaseJpaRepository;
+import com.mgmetehan.historytracking.core.service.AbstractEntityService;
 import com.mgmetehan.historytracking.model.Post;
 import com.mgmetehan.historytracking.repository.PostRepository;
 import com.mgmetehan.historytracking.service.PostService;
@@ -13,7 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class PostServiceImpl implements PostService {
+public class PostServiceImpl extends AbstractEntityService<Post, Long> implements PostService {
     private final PostRepository postRepository;
 
     @Override
@@ -36,5 +38,10 @@ public class PostServiceImpl implements PostService {
         post.setText(updateDto.getText());
         var updatePost = postRepository.save(post);
         return updatePost;
+    }
+
+    @Override
+    public BaseJpaRepository<Post, Long> getJpaRepository() {
+        return null;
     }
 }
